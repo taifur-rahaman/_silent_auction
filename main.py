@@ -1,4 +1,5 @@
 import replit
+import art
 
 print("Welcome to the Silent Auction\n")
 bidders = []  # it's a global bidders list
@@ -14,18 +15,12 @@ def bidder(name, bid, bidders):
 def highest_bid(bidders):
     replit.clear()
     max_bid = 0
+    text = "Winner is"
     for dict in bidders:
         if dict["bid_amount"] > max_bid:
             max_bid = dict["bid_amount"]
             max_bidder = dict["name"]
-    print('''                 
-`YMM'   `MM'                     `7MMF'     A     `7MF'db             
-  VMA   ,V                         `MA     ,MA     ,V                 
-   VMA ,V ,pW"Wq.`7MM  `7MM         VM:   ,VVM:   ,V `7MM `7MMpMMMb.  
-    VMMP 6W'   `Wb MM    MM          MM.  M' MM.  M'   MM   MM    MM  
-     MM  8M     M8 MM    MM          `MM A'  `MM A'    MM   MM    MM  
-     MM  YA.   ,A9 MM    MM           :MM;    :MM;     MM   MM    MM  
-   .JMML. `Ybmd9'  `Mbod"YML.          VF      VF    .JMML.JMML  JMML.                   ''')
+    print(art.text2art(f"{text : ^30}\n") + art.text2art(f"{max_bidder : ^45}"))
     print(f"{max_bidder} won by bidding {max_bid}")
 
 
